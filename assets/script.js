@@ -8,18 +8,20 @@ var formSubmitHandler = function (event) {
 
     if (cityname) {
         getCityWeather(cityname);
-
-        weatherContainerEl.textContent = "";
         nameInputEl.value = "";
     } else {
         alert("Please enter a City");
     }
 };
 
+const key = "d97176eba089433e8724fc40b45c34ee";
 
-var getCityWeather = function (user) {
-    var apiKey = "d97176eba089433e8724fc40b45c34ee";
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}";
+// function getCityWeather(cityname) {
+//     let api = "https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${key}";
+// }
+
+var getCityWeather = function (user) {;
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q={cityname}&appid={key}";
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
