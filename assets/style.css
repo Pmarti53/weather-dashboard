@@ -55,6 +55,7 @@ main {
   }
 
 .current-weather {
+  text-align: center;
   width: 300px;
   background-color: gray;
   display: block;
@@ -62,3 +63,10 @@ main {
   border-radius: 7px;
   padding-bottom: 50px;
 }  
+
+.forecast {
+  text-align: center;
+  width: 600px;
+  display: block;
+
+}

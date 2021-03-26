@@ -46,16 +46,13 @@ function getCityWeather(cityName) {
 function displayWeather(weather) {
     console.log(weather.name)
     locationEl.innerHTML = weather.name;
-    humidityEl.innerHTML = weather.main.humidity;
-    tempValEl.innerHTML = weather.main.temp;
-    windSpeedEl.innerHTML = weather.wind.speed;
+    humidityEl.innerHTML = "humidity:  " + weather.main.humidity;
+    tempValEl.innerHTML = "temp:  " + weather.main.temp;
+    windSpeedEl.innerHTML = "wind:  " + weather.wind.speed;
     
     fetch('http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png')
-
-
-
-
 }    
+
 
 
 
