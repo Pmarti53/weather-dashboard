@@ -4,7 +4,6 @@ var weatherContainerEl = document.querySelector(".weather-container");
 var locationEl = document.querySelector(".location");
 var humidityEl = document.querySelector(".humidity");
 var windSpeedEl = document.querySelector(".wind-speed");
-var uvIndexEl = document.querySelector(".UV");
 var tempValEl = document.querySelector(".temperature-value");
 var icon = document.querySelector(".weather-icon");
 var icon1 = document.querySelector(".icon1");
@@ -49,8 +48,8 @@ function getForecast(cityName) {
     fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=d97176eba089433e8724fc40b45c34ee')
         .then(function (response) {
             if (response.ok) {
-                response.json().then(function (weather) {
-                    console.log(weather);
+                response.json().then(function (forecast) {
+                    console.log(forecast);
 
                 })
             } else {
@@ -81,6 +80,11 @@ function displayWeather(weather) {
 
 
         })
+};
+
+function display5day(forecast) {
+
+    humidity1.innerHTML = forecast.list[4].main.temp;
 }
 
 
