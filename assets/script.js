@@ -7,6 +7,8 @@ var windSpeedEl = document.querySelector(".wind-speed");
 var uvIndexEl = document.querySelector(".UV");
 var tempValEl = document.querySelector(".temperature-value");
 var icon = document.querySelector(".weather-icon");
+var icon1 = document.querySelector(".icon1");
+var humidity1 = document.querySelector(".Humidity1");
 var searchHistory = [];
 const weather = {}
 const kelvin = 273;
@@ -23,6 +25,7 @@ var formSubmitHandler = function (event) {
     } else {
         alert("Please enter a City");
     }
+    getForecast(cityName)
 };
 
 //get city weather function
@@ -78,14 +81,11 @@ function displayWeather(weather) {
 
 
         })
-
-
-
-};
-
-function displayForecast(weather) {
-
 }
+
+
+
+
 
 
 
