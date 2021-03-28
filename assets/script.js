@@ -7,8 +7,9 @@ var windSpeedEl = document.querySelector(".wind-speed");
 var uvIndexEl = document.querySelector(".UV");
 var tempValEl = document.querySelector(".temperature-value");
 var icon = document.querySelector(".weather-icon");
-var searchHistory = []
-
+var searchHistory = [];
+const weather = {}
+const kelvin = 273;
 
 
 //Form submit//
@@ -30,7 +31,7 @@ function getCityWeather(cityName) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data);
+                    // console.log(data);
 
                     displayWeather(data, cityName);
                 })
@@ -40,18 +41,53 @@ function getCityWeather(cityName) {
         })
 };
 
+//5 day forecast
+function getForecast(cityName) {
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=d97176eba089433e8724fc40b45c34ee')
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (weather) {
+                    console.log(weather);
+
+                })
+            } else {
+                alert("Error" + response.statusText);
+            }
+        })
+};
+
+
 
 
 //display weather
 function displayWeather(weather) {
-    console.log(weather.name)
+    // console.log(weather.name)
     locationEl.innerHTML = weather.name;
-    humidityEl.innerHTML = "humidity:  " + weather.main.humidity;
+    humidityEl.innerHTML = "humidity:  " + weather.main.humidity + "%";
     tempValEl.innerHTML = "temp:  " + weather.main.temp;
-    windSpeedEl.innerHTML = "wind:  " + weather.wind.speed;
-    
+    windSpeedEl.innerHTML = "wind:  " + weather.wind.speed + " mph";
+    icon.innerHTML = weather.weather[0].icon;
+
     fetch('http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png')
-}    
+        .then(function (response) {
+            if (response.ok) {
+                // console.log(weather.weather[0].icon)
+            } else {
+                console.log(response.statusText)
+            }
+
+
+        })
+
+
+
+};
+
+function displayForecast(weather) {
+
+}
+
+
 
 
 

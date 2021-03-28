@@ -50,23 +50,17 @@ main {
   border-radius: 5px;
 }
 
-.col-md-12 {
-    flex: 0 0 100%;
-  }
-
 .current-weather {
   text-align: center;
-  width: 300px;
+  width: 500px;
   background-color: gray;
   display: block;
-  margin: left;
   border-radius: 7px;
   padding-bottom: 50px;
 }  
 
 .forecast {
   text-align: center;
-  width: 600px;
-  display: block;
+  /* display: table-column; */
 
 }
